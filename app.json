@@ -22,7 +22,8 @@
   "addons": [
     "heroku-postgresql",
     "heroku-redis",
-    "mailgun:starter"
+    "mailgun:starter",
+    "papertrail"
   ],
   "buildpacks": [
     { "url": "https://github.com/kennethreitz/conda-buildpack" }
