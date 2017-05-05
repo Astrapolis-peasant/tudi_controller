@@ -1,0 +1,30 @@
+{
+  "name": "Airflow Heroku",
+  "description": "Run Airflow on Heroku",
+  "image": "heroku/cedar:14",
+  "env": {
+    "AIRFLOW_HOME": {
+      "description": "Where all the information for airflow lives",
+      "value": "/app"
+    },
+    "AIRFLOW_SECRET_KEY": {
+      "description": "A secret key to verify the integrity of signed cookies",
+      "generator": "secret"
+    },
+    "PYTHONPATH": {
+      "description": "Path for python",
+      "value": "/app"
+    }
+  },
+  "scripts": {
+    "postdeploy": "./init_env"
+  },
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis",
+    "mailgun:starter"
+  ],
+  "buildpacks": [
+    { "url": "https://github.com/kennethreitz/conda-buildpack" }
+  ]
+}
